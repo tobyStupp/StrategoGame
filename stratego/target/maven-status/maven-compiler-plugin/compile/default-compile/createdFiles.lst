@@ -21,5 +21,6 @@ Gui\MessagePanel.class
 Model\MoveablePiece.class
 Model\BotPlayer.class
 Gui\ResultPanel.class
+Controller\GameMove.class
 Model\Board.class
 Model\Square.class

@@ -29,7 +29,9 @@ public class OccupiableSquare extends Square {
        Piece p = this.piece;
        this.piece = null;
        p.remove();
+       p.decreasePieces();
        cell.remove();
+
        return p;
     }
     public Piece getPiece() {return piece;}
@@ -38,6 +40,12 @@ public class OccupiableSquare extends Square {
             return String.format("(%2d,%2d) %s", getRow(), getCol(), this.piece.getName());
         return super.toString() + " OCC";
     }
-   
+    public Player getPlayer(){return piece.getPlayer();}
+    public void enbolden(){
+        cell.bold();
+    }
+    public void unebolden(){
+        cell.unbold();
+    }
     
 }

@@ -29,7 +29,10 @@ public class Piece {
         
       
     }
-    public void remove (){this.currentPlace = null;}
+    public void remove (){
+        this.currentPlace = null;
+        
+    }
     public boolean onBoard (){return currentPlace!=null;}
     // returns <0 if param stronger
     // returns 0 if equal (both removed)
@@ -52,5 +55,8 @@ public class Piece {
     }
     public PieceType getPieceType() {return this.type;}
     public boolean isBot(){return player instanceof BotPlayer;}
+    public void decreasePieces(){this.player.takeOff();}
+    public Player getPlayer(){return this.player;}
+    public OccupiableSquare getPlace(){return this.currentPlace;}
     
 }

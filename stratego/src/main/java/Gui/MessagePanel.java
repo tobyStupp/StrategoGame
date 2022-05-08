@@ -37,9 +37,12 @@ public class MessagePanel extends JPanel implements ActionListener {
         this.messageLabel.setText(message);
     }
     public void start (){cont.setEnabled(true);}
+    public void reset (){cont.setEnabled(false);}
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        remove(cont);
+        this.revalidate();
         control.tranisiton ();        
     }
 }

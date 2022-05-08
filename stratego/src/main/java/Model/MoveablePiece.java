@@ -14,6 +14,8 @@ public  class MoveablePiece extends Piece{
         super(t,p);
     }
     public void move (OccupiableSquare dest){
+        OccupiableSquare sq = getPlace();
+        sq.removePiece();
         dest.placePiece(this);
         
     }

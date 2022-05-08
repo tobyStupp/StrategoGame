@@ -14,6 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.border.BevelBorder;
 
 /**
  *
@@ -24,6 +25,7 @@ public class Cell extends JLabel{
     private boolean blank ;
     private int row;
     private int col;
+    private MouseListener listener;
     
     class PlayGameClick implements MouseListener{
         private GameController controller;
@@ -32,7 +34,10 @@ public class Cell extends JLabel{
         }
         @Override
         public void mouseClicked(MouseEvent e) {
-            JOptionPane.showMessageDialog(null, "It works");
+          if (listener==this){
+            Cell c = (Cell)e.getSource();
+            controller.press(c.row, c.col);
+          }
         }
 
         @Override
@@ -97,7 +102,8 @@ public class Cell extends JLabel{
         setIcon(icon);
         this.row = row;
         this.col = col;
-        addMouseListener (new InitMouseClick(c));
+        listener = new InitMouseClick(c);
+        addMouseListener (listener);
     }
     public Cell (int row, int col){
         icon = Icons.getIcon("SEA");
@@ -117,8 +123,16 @@ public class Cell extends JLabel{
         setIcon(icon);
     }
     public void changeState (GameController gc){
-        this.removeMouseListener(getMouseListeners()[0]);
-        this.addMouseListener(new PlayGameClick(gc));
+      
+        this.removeMouseListener(listener);
+        listener = new PlayGameClick(gc);
+        this.addMouseListener(listener);
+    }
+    public void bold(){
+        setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+    }
+    public void unbold(){
+        setBorder(BorderFactory.createLineBorder (Color.BLACK,2));
     }
     
     

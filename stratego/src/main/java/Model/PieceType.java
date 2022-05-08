@@ -30,6 +30,7 @@ public enum PieceType {
         this.val = val;
         this.name = n;
         this.count = c;
+        this.moveable =moveable;
     }
     public int getValue(){return this.val;}
     public String getName (){return this.name + ".png";}

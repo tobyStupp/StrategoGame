@@ -20,5 +20,6 @@ public class Square {
     public String toString (){
        return String.format ("(%d,%d)SQUARE", row, col);
     }
+   
     
 }
