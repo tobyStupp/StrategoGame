@@ -31,5 +31,9 @@ public class ResultPanel extends JPanel {
                 
             }
         }
+        
     }
+    public ResultLabel getLabel (int i){
+            return labels.get(i);
+        }
 }
