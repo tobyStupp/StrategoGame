@@ -34,6 +34,13 @@ public class OccupiableSquare extends Square {
 
        return p;
     }
+    public void movePiece(OccupiableSquare sq){
+        Piece p = this.piece;
+        this.piece = null;
+        p.remove();
+        cell.remove();
+        sq.placePiece(p);
+    }
     public Piece getPiece() {return piece;}
     public String toString(){
         if (hasPiece())

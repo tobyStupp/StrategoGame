@@ -23,4 +23,5 @@ Model\BotPlayer.class
 Gui\ResultPanel.class
 Controller\GameMove.class
 Model\Board.class
+Controller\BuildBoard.class
 Model\Square.class

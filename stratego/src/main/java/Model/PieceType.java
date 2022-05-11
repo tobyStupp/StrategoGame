@@ -36,4 +36,13 @@ public enum PieceType {
     public String getName (){return this.name + ".png";}
     public int getCount(){return this.count;}
     public boolean isMoveable(){return this.moveable;}
+    public int attack (PieceType pt){
+        if (pt.val == val)
+            return 0;
+        if (val == 3 && pt.val ==20)
+            return 1;
+        if (val == 1 && pt.val==10)
+            return 1;
+        return val > pt.val ? 1 : -1;
+    }
 }

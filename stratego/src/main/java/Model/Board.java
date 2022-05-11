@@ -17,7 +17,7 @@ public class Board {
         for (int i = 0; i < 4; i++){
             for (int j=0; j< 10; j++){
                 board[i][j] = new OccupiableSquare(i, j);
-                board [i+6][j] = new OccupiableSquare(i,j);
+                board [i+6][j] = new OccupiableSquare(i+6,j);
             }
         }
         for (int i = 4; i < 6;i++)
